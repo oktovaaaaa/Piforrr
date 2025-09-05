@@ -13,7 +13,26 @@
     
     <style>
         /* css/style.css */
-        :root{--primary-color:#192a56;--secondary-color:#a03030;--accent-color:#5f27cd;--light-color:#ecf0f1;--dark-color:#192a56;--text-color:#333;--transition:all .4s ease}*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;overflow-x:hidden;position:relative;scroll-behavior:smooth}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-color);background-color:#f9f9f9}a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;height:auto;display:block}.container{width:100%;max-width:1200px;margin:0 auto;padding:0 15px}.section{padding:80px 0;width:100%}.section-title{text-align:center;margin-bottom:50px;position:relative;width:100%}.section-title h2{font-size:2.5rem;color:var(--primary-color);margin-bottom:15px}.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:3px;background-color:var(--secondary-color)}header{position:fixed;top:0;left:0;width:100%;z-index:1000;background-color:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.1);transition:var(--transition)}header.scrolled{padding:10px 0}.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 0;width:100%}.logo{display:flex;align-items:center}.logo img{height:40px;margin-right:10px}.logo h1{font-size:1.5rem;color:var(--primary-color)}.nav-menu{display:flex}.nav-menu li{margin:0 15px}.nav-menu a{color:var(--primary-color);font-weight:600;padding:5px 0;position:relative;transition:var(--transition)}.nav-menu a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background-color:var(--secondary-color);transition:var(--transition)}.nav-menu a:hover::after,.nav-menu a.active::after{width:100%}.hamburger{display:none;cursor:pointer}.hamburger div{width:25px;height:3px;background-color:var(--primary-color);margin:5px 0;transition:var(--transition)}.hero-slider{position:relative;height:100vh;overflow:hidden;margin-top:70px;width:100%;background-color:var(--primary-color)}.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;color:white;opacity:0;visibility:hidden;transition:opacity 1.5s ease,visibility 1.5s ease;background-size:cover;background-position:center center}.slide.active{opacity:1;visibility:visible}.slide::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6))}.slide-content{max-width:750px;text-align:left;text-shadow:2px 2px 8px rgba(0,0,0,.8);position:relative;z-index:2}.slide-content .sub-heading{font-size:1.3rem;font-weight:400;text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;color:rgba(255,255,255,.9)}.slide-content h2{font-size:4rem;margin-bottom:25px;line-height:1.2}.slide-1 h2{font-family:'Playfair Display',serif}.slide-2 h2{font-family:'Lobster',cursive;font-size:4.5rem}.slide-3 h2{font-family:'Montserrat',sans-serif;text-transform:uppercase}.slide-content p{font-size:1.2rem;margin-bottom:30px;max-width:600px}.btn{display:inline-block;padding:12px 30px;background-color:var(--secondary-color);color:white;border-radius:30px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;text-shadow:none}.btn:hover{background-color:var(--primary-color);transform:translateY(-3px)}.slider-nav{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;z-index:5}.slider-dot{width:12px;height:12px;border-radius:50%;background-color:rgba(255,255,255,.5);margin:0 5px;cursor:pointer;transition:var(--transition)}.slider-dot.active{background-color:white}.about-content{display:flex;flex-wrap:wrap;align-items:center;gap:40px;width:100%}.about-image{flex:1;min-width:300px;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1)}.about-text{flex:1;min-width:300px}.about-text h3{font-size:2rem;margin-bottom:20px;color:var(--primary-color)}.about-text p{margin-bottom:15px;line-height:1.8}.generation-selector{display:flex;justify-content:center;margin-bottom:30px;flex-wrap:wrap;width:100%}.gen-btn{padding:10px 20px;margin:5px;background-color:var(--light-color);border:none;border-radius:30px;cursor:pointer;font-weight:600;transition:var(--transition)}.gen-btn.active,.gen-btn:hover{background-color:var(--secondary-color);color:white}.team-container{display:none;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px;width:100%}.team-container.active{display:grid}.member-card{background-color:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);position:relative;height:350px;width:100%;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}.member-card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,.2)}.member-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:var(--bg-image);background-size:cover;background-position:center;opacity:0;transition:opacity .5s ease;z-index:1}.member-card:hover::before{opacity:1}.member-info-default{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:20px;transition:opacity .5s ease,visibility .5s ease;opacity:1;visibility:visible}.member-card:hover .member-info-default{opacity:0;visibility:hidden}.member-info-hover{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:white;text-align:center;opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,visibility .5s ease;z-index:2}.member-card:hover .member-info-hover{opacity:1;visibility:visible;transform:translateY(0)}.member-image{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:5px solid var(--light-color)}.member-name{font-size:1.5rem;margin-bottom:10px;color:var(--primary-color)}.member-info-hover .member-name{color:white}.member-role{color:var(--secondary-color);font-weight:600;margin-bottom:15px}.member-desc{line-height:1.6}.social-links{display:flex;margin-top:20px}.social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;color:white;background-color:rgba(255,255,255,.2);margin:0 5px;transition:var(--transition)}.social-links a:hover{background-color:var(--secondary-color)}.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;width:100%}.album-item{position:relative;border-radius:10px;overflow:hidden;height:250px;box-shadow:0 5px 15px rgba(0,0,0,.1);width:100%}.album-image{width:100%;height:100%;object-fit:cover;transition:var(--transition)}.album-overlay{position:absolute;bottom:0;left:0;right:0;background-color:rgba(0,0,0,.7);padding:20px;color:white;transform:translateY(100%);transition:var(--transition)}.album-item:hover .album-overlay{transform:translateY(0)}.album-item:hover .album-image{transform:scale(1.1)}.achievement-list{display:flex;flex-direction:column;gap:20px;max-width:800px;margin:0 auto;width:100%}.achievement-item{background-color:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.07);overflow:hidden;width:100%}.achievement-header{display:flex;align-items:center;gap:20px;padding:20px;cursor:pointer;width:100%}.achievement-icon{font-size:2rem;color:var(--secondary-color);flex-shrink:0}.achievement-content h3{margin-bottom:10px;color:var(--primary-color)}.achievement-arrow{margin-left:auto;font-size:1.5rem;transition:var(--transition)}.achievement-item.active .achievement-arrow{transform:rotate(180deg)}.achievement-details{max-height:0;overflow:hidden;transition:max-height .5s ease-out,padding .5s ease-out;padding:0 20px}.achievement-item.active .achievement-details{max-height:500px;padding:0 20px 20px}.achievement-image-container{width:100%;padding-top:56.25%;position:relative;border-radius:8px;overflow:hidden;margin-bottom:15px}.achievement-image-container img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}.achievement-details p{line-height:1.7}footer{background-color:var(--dark-color);color:white;padding:60px 0 30px;width:100%}.footer-content{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;margin-bottom:40px;width:100%}.footer-col{flex:1;min-width:250px}.footer-col h3{font-size:1.5rem;margin-bottom:20px;position:relative;padding-bottom:10px}.footer-col h3::after{content:'';position:absolute;bottom:0;left:0;width:50px;height:2px;background-color:var(--secondary-color)}.footer-col p{margin-bottom:15px;line-height:1.8}.footer-social{display:flex;gap:15px;margin-top:20px}.footer-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background-color:rgba(255,255,255,.1);transition:var(--transition)}.footer-social a:hover{background-color:var(--secondary-color)}.footer-links li{margin-bottom:10px}.footer-links a{transition:var(--transition)}.footer-links a:hover{color:var(--secondary-color);padding-left:5px}.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);width:100%}@media (max-width:992px){.slide-content h2{font-size:3.2rem}.slide-2 h2{font-size:3.5rem}}@media (max-width:768px){.hamburger{display:block}.nav-menu{position:fixed;top:70px;right:-100%;width:80%;height:calc(100vh - 70px);background-color:white;flex-direction:column;align-items:center;justify-content:center;transition:var(--transition);box-shadow:-5px 0 15px rgba(0,0,0,.1)}.nav-menu.active{right:0}.nav-menu li{margin:15px 0}.hero-slider{height:80vh}.slide-content h2{font-size:2.8rem}.slide-2 h2{font-size:3rem}}
+        :root{--primary-color:#192a56;--secondary-color:#a03030;--accent-color:#5f27cd;--light-color:#ecf0f1;--dark-color:#192a56;--text-color:#333;--transition:all .4s ease}*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;overflow-x:hidden;position:relative;scroll-behavior:smooth}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-color);background-color:#f9f9f9}a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;height:auto;display:block}.container{width:100%;max-width:1200px;margin:0 auto;padding:0 15px}.section{padding:80px 0;width:100%}.section-title{text-align:center;margin-bottom:50px;position:relative;width:100%}.section-title h2{font-size:2.5rem;color:var(--primary-color);margin-bottom:15px}.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:3px;background-color:var(--secondary-color)}header{position:fixed;top:0;left:0;width:100%;z-index:1000;background-color:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.1);transition:var(--transition)}header.scrolled{padding:10px 0}.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 0;width:100%}.logo{display:flex;align-items:center}.logo img{height:40px;margin-right:10px}.logo h1{font-size:1.5rem;color:var(--primary-color)}.nav-menu{display:flex}.nav-menu li{margin:0 15px}.nav-menu a{color:var(--primary-color);font-weight:600;padding:5px 0;position:relative;transition:var(--transition)}.nav-menu a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background-color:var(--secondary-color);transition:var(--transition)}.nav-menu a:hover::after,.nav-menu a.active::after{width:100%}.hamburger{display:none;cursor:pointer}.hamburger div{width:25px;height:3px;background-color:var(--primary-color);margin:5px 0;transition:var(--transition)}.hero-slider{position:relative;height:100vh;overflow:hidden;margin-top:70px;width:100%;background-color:var(--primary-color)}.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;color:white;opacity:0;visibility:hidden;transition:opacity 1.5s ease,visibility 1.5s ease;background-size:cover;background-position:center center}.slide.active{opacity:1;visibility:visible}.slide::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6))}.slide-content{max-width:750px;text-align:left;text-shadow:2px 2px 8px rgba(0,0,0,.8);position:relative;z-index:2}.slide-content .sub-heading{font-size:1.3rem;font-weight:400;text-transform:uppercase;letter-spacing:3px;margin-bottom:15px;color:rgba(255,255,255,.9)}.slide-content h2{font-size:4rem;margin-bottom:25px;line-height:1.2}.slide-1 h2{font-family:'Playfair Display',serif}.slide-2 h2{font-family:'Lobster',cursive;font-size:4.5rem}.slide-3 h2{font-family:'Montserrat',sans-serif;text-transform:uppercase}.slide-content p{font-size:1.2rem;margin-bottom:30px;max-width:600px}.btn{display:inline-block;padding:12px 30px;background-color:var(--secondary-color);color:white;border-radius:30px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;text-shadow:none}.btn:hover{background-color:var(--primary-color);transform:translateY(-3px)}.slider-nav{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;z-index:5}.slider-dot{width:12px;height:12px;border-radius:50%;background-color:rgba(255,255,255,.5);margin:0 5px;cursor:pointer;transition:var(--transition)}.slider-dot.active{background-color:white}.about-content{display:flex;flex-wrap:wrap;align-items:center;gap:40px;width:100%}.about-image{flex:1;min-width:300px;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1)}.about-text{flex:1;min-width:300px}.about-text h3{font-size:2rem;margin-bottom:20px;color:var(--primary-color)}.about-text p{margin-bottom:15px;line-height:1.8}.generation-selector{display:flex;justify-content:center;margin-bottom:30px;flex-wrap:wrap;width:100%}.gen-btn{padding:10px 20px;margin:5px;background-color:var(--light-color);border:none;border-radius:30px;cursor:pointer;font-weight:600;transition:var(--transition)}.gen-btn.active,.gen-btn:hover{background-color:var(--secondary-color);color:white}.team-container{display:none;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px;width:100%}.team-container.active{display:grid}
+        
+        /* === STYLE BARU UNTUK JUDUL GENERASI === */
+        .generation-title {
+            grid-column: 1 / -1; /* Membuat judul membentang di semua kolom grid */
+            text-align: center;
+            margin-bottom: 20px; /* Mengurangi margin agar tidak terlalu jauh dari kartu */
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            width: 100%;
+        }
+        /* Penyesuaian untuk pesan "data belum tersedia" */
+        .team-container > p {
+            grid-column: 1 / -1;
+            text-align: center;
+            width: 100%;
+        }
+        /* ======================================= */
+
+        .member-card{background-color:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);position:relative;height:350px;width:100%;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}.member-card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,.2)}.member-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:var(--bg-image);background-size:cover;background-position:center;opacity:0;transition:opacity .5s ease;z-index:1}.member-card:hover::before{opacity:1}.member-info-default{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:20px;transition:opacity .5s ease,visibility .5s ease;opacity:1;visibility:visible}.member-card:hover .member-info-default{opacity:0;visibility:hidden}.member-info-hover{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:white;text-align:center;opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,visibility .5s ease;z-index:2}.member-card:hover .member-info-hover{opacity:1;visibility:visible;transform:translateY(0)}.member-image{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:5px solid var(--light-color)}.member-name{font-size:1.5rem;margin-bottom:10px;color:var(--primary-color)}.member-info-hover .member-name{color:white}.member-role{color:var(--secondary-color);font-weight:600;margin-bottom:15px}.member-desc{line-height:1.6}.social-links{display:flex;margin-top:20px}.social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;color:white;background-color:rgba(255,255,255,.2);margin:0 5px;transition:var(--transition)}.social-links a:hover{background-color:var(--secondary-color)}.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;width:100%}.album-item{position:relative;border-radius:10px;overflow:hidden;height:250px;box-shadow:0 5px 15px rgba(0,0,0,.1);width:100%}.album-image{width:100%;height:100%;object-fit:cover;transition:var(--transition)}.album-overlay{position:absolute;bottom:0;left:0;right:0;background-color:rgba(0,0,0,.7);padding:20px;color:white;transform:translateY(100%);transition:var(--transition)}.album-item:hover .album-overlay{transform:translateY(0)}.album-item:hover .album-image{transform:scale(1.1)}.achievement-list{display:flex;flex-direction:column;gap:20px;max-width:800px;margin:0 auto;width:100%}.achievement-item{background-color:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.07);overflow:hidden;width:100%}.achievement-header{display:flex;align-items:center;gap:20px;padding:20px;cursor:pointer;width:100%}.achievement-icon{font-size:2rem;color:var(--secondary-color);flex-shrink:0}.achievement-content h3{margin-bottom:10px;color:var(--primary-color)}.achievement-arrow{margin-left:auto;font-size:1.5rem;transition:var(--transition)}.achievement-item.active .achievement-arrow{transform:rotate(180deg)}.achievement-details{max-height:0;overflow:hidden;transition:max-height .5s ease-out,padding .5s ease-out;padding:0 20px}.achievement-item.active .achievement-details{max-height:500px;padding:0 20px 20px}.achievement-image-container{width:100%;padding-top:56.25%;position:relative;border-radius:8px;overflow:hidden;margin-bottom:15px}.achievement-image-container img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}.achievement-details p{line-height:1.7}footer{background-color:var(--dark-color);color:white;padding:60px 0 30px;width:100%}.footer-content{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;margin-bottom:40px;width:100%}.footer-col{flex:1;min-width:250px}.footer-col h3{font-size:1.5rem;margin-bottom:20px;position:relative;padding-bottom:10px}.footer-col h3::after{content:'';position:absolute;bottom:0;left:0;width:50px;height:2px;background-color:var(--secondary-color)}.footer-col p{margin-bottom:15px;line-height:1.8}.footer-social{display:flex;gap:15px;margin-top:20px}.footer-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background-color:rgba(255,255,255,.1);transition:var(--transition)}.footer-social a:hover{background-color:var(--secondary-color)}.footer-links li{margin-bottom:10px}.footer-links a{transition:var(--transition)}.footer-links a:hover{color:var(--secondary-color);padding-left:5px}.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);width:100%}@media (max-width:992px){.slide-content h2{font-size:3.2rem}.slide-2 h2{font-size:3.5rem}}@media (max-width:768px){.hamburger{display:block}.nav-menu{position:fixed;top:70px;right:-100%;width:80%;height:calc(100vh - 70px);background-color:white;flex-direction:column;align-items:center;justify-content:center;transition:var(--transition);box-shadow:-5px 0 15px rgba(0,0,0,.1)}.nav-menu.active{right:0}.nav-menu li{margin:15px 0}.hero-slider{height:80vh}.slide-content h2{font-size:2.8rem}.slide-2 h2{font-size:3rem}}
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -23,8 +42,7 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <!-- Ganti src dengan path yang valid atau biarkan kosong jika tidak ada logo -->
-                    <img src="images/Piforrr.png" alt="Piforrr Logo">
+                    <img src="" alt="Piforrr Logo">
                     <h1>Piforrr</h1>
                 </div>
                 <ul class="nav-menu">
@@ -115,45 +133,40 @@
                     id: 1,
                     name: "Oktovaaaaa",
                     role: "Pendiri & Ketua",
-                    imgDefault: "images/anggota/Oktovaaaaa1.jpg",
-                    // --- PERBAIKAN: Menggunakan URL valid agar gambar latar belakang tampil ---
-                    bgImage: "images/anggota/Oktovaaaaa2.jpg",
-                    description: "Anggota pertama di Piforrr dan pendiri team Piforrr yang menduduki Piforrr Gen 1.",
+                    imgDefault: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=60",
+                    bgImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=60",
+                    description: "Seorang seniman berbakat yang memulai perjalanan Piforrr. Memiliki visi untuk menciptakan wadah kreatif bagi anak muda.",
                     socials: [
                         { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
                         { icon: "fas fa-address-card", url: "https://oktovaaaaa.vercel.app/" },
-                        { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
-                        { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6281234567890" },
+                        { icon: "fab fa-linkedin", url: "#" }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Anggota Kedua",
+                    role: "Wakil Ketua",
+                    imgDefault: "https://images.unsplash.com/photo-1542909168-82c3e72fd3e7?auto=format&fit=crop&w=400&q=60",
+                    bgImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
+                    description: "Spesialis strategi dan pengembangan komunitas. Menjaga agar visi tim tetap berjalan pada jalurnya.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "#" },
+                        { icon: "fab fa-linkedin", url: "#" }
                     ]
                 }
-                ,
-                // {
-                //     id: 2,
-                //     name: "Anggota Kedua",
-                //     role: "Wakil Ketua",
-                //     imgDefault: "https://images.unsplash.com/photo-1542909168-82c3e72fd3e7?auto=format&fit=crop&w=400&q=60",
-                //     bgImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-                //     description: "Spesialis strategi dan pengembangan komunitas. Menjaga agar visi tim tetap berjalan pada jalurnya.",
-                //     socials: [
-                //         { icon: "fab fa-instagram", url: "#" },
-                //         { icon: "fab fa-linkedin", url: "#" }
-                //     ]
-                // }
             ],
             gen2: [
                 {
-                    id: 1,
-                    name: "Oktovaaaaa",
-                    role: "Pendiri & Ketua",
-                    imgDefault: "images/anggota/Oktovaaaaa1.jpg",
-                    // --- PERBAIKAN: Menggunakan URL valid agar gambar latar belakang tampil ---
-                    bgImage: "images/anggota/Oktovaaaaa2.jpg",
-                    description: "Ketua Piforrr Gen 2 dalam Tim Hackathon Build to Billions 2025, dengan peran sebagai Data Analyst.",
+                    id: 3,
+                    name: "Anggota Gen 2",
+                    role: "Desainer Grafis",
+                    imgDefault: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=60",
+                    bgImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=60",
+                    description: "Kreator visual yang handal, mengubah ide menjadi karya seni yang memukau.",
                     socials: [
-                        { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
-                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.vercel.app/" },
-                        { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
-                        { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
+                        { icon: "fab fa-instagram", url: "#" },
+                        { icon: "fab fa-linkedin", url: "#" }
                     ]
                 }
             ],
@@ -190,14 +203,14 @@
                 icon: "fas fa-trophy",
                 title: "Juara 2 Lomba Website Aksara Batak Nasional",
                 summary: "Meraih penghargaan ke 2 dari team Piforrr Gen 3 dengan Lomba Website Aksara batak dengan nama domain 'piforrr.id'",
-                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60", // Menggunakan gambar placeholder
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60",
                 details: "Karya kami, Piforrr Gen 3, dengan nama domain “piforrr.id”, berhasil meraih juara dalam Lomba Website Aksara Batak yang diselenggarakan oleh PANDI di FISIP USU, Universitas Sumatera Utara, Medan."
             },
             {
                 icon: "fas fa-award",
                 title: "Penghargaan Inovasi Teknologi 2024",
                 summary: "Mendapatkan pengakuan atas aplikasi mobile inovatif yang dikembangkan oleh tim.",
-                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726a?auto=format&fit=crop&w=800&q=60", // Menggunakan gambar placeholder
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726a?auto=format&fit=crop&w=800&q=60",
                 details: "Aplikasi kami berhasil memenangkan kategori 'Solusi Digital untuk Komunitas' dalam ajang penghargaan tahunan."
             }
         ];
@@ -205,15 +218,40 @@
         // js/main.js
         document.addEventListener('DOMContentLoaded', () => {
 
+            // === FUNGSI DIPERBARUI ===
             const generateMemberCards = (generationId) => {
                 const container = document.getElementById(generationId);
                 if (!container) return;
 
                 const members = teamData[generationId] || [];
-                let content = '';
+                let generationTitle = '';
+
+                // Menentukan judul berdasarkan ID generasi
+                switch (generationId) {
+                    case 'gen1':
+                        generationTitle = 'Generasi 1: Para Perintis';
+                        break;
+                    case 'gen2':
+                        generationTitle = 'Generasi 2: Penerus Visi';
+                        break;
+                    case 'gen3':
+                        generationTitle = 'Generasi 3: Inovator Masa Depan';
+                        break;
+                    case 'gen4':
+                        generationTitle = 'Generasi 4: Kekuatan Baru';
+                        break;
+                    case 'gen5':
+                        generationTitle = 'Generasi 5: Era Digital';
+                        break;
+                    default:
+                        generationTitle = 'Anggota Piforrr';
+                }
+
+                // Menambahkan judul besar di awal konten
+                let content = `<h2 class="generation-title">${generationTitle}</h2>`;
 
                 if (members.length === 0) {
-                    content = '<p style="text-align:center; width:100%;">Data anggota untuk generasi ini belum tersedia.</p>';
+                    content += '<p>Data anggota untuk generasi ini belum tersedia.</p>';
                 } else {
                     members.forEach(member => {
                         const socialLinks = member.socials.map(social => 
@@ -356,7 +394,7 @@
                     const targetContainer = document.getElementById(targetGen);
                     if (targetContainer) {
                         targetContainer.classList.add('active');
-                        generateMemberCards(targetGen);
+                        generateMemberCards(targetGen); // Fungsi ini sekarang akan membuat judul
                         initMemberCardHover();
                     }
                 });
