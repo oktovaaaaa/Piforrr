@@ -17,13 +17,23 @@
     <style>
         /* css/style.css */
         :root {
-            --primary-color: #192a56;
-            --secondary-color: #a03030;
-            --accent-color: #5f27cd;
+            /* Palet Warna Baru */
+            --primary-color: #11195c;
+            /* Navy */
+            --secondary-color: #fb7e09;
+            /* Oren */
+            --accent-color: #2506ad;
+            /* Ungu */
+            --maroon-color: #981a1e;
+            /* Maron */
+            --light-blue-color: #04cff1;
+            /* Biru */
+
             --light-color: #ecf0f1;
-            --dark-color: #192a56;
+            --dark-color: #11195c;
+            /* Navy */
             --text-color: #333;
-            --transition: all .4s ease
+            --transition: all .4s ease;
         }
 
         * {
@@ -95,7 +105,8 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--secondary-color)
+            background-color: var(--maroon-color)
+                /* Menggunakan warna maron */
         }
 
         header {
@@ -159,13 +170,17 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color);
+            background-color: var(--light-blue-color);
+            /* Menggunakan warna biru */
             transition: var(--transition)
         }
 
+        .nav-menu a:hover,
         .nav-menu a:hover::after,
         .nav-menu a.active::after {
-            width: 100%
+            width: 100%;
+            color: var(--accent-color);
+            /* Menggunakan warna ungu saat hover */
         }
 
         .hamburger {
@@ -204,7 +219,6 @@
             transition: opacity 1.5s ease, visibility 1.5s ease;
         }
 
-        /* --- CSS BARU UNTUK GAMBAR SLIDER --- */
         .slide .slide-bg-image {
             position: absolute;
             top: 0;
@@ -213,7 +227,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            z-index: 1; /* Pastikan gambar di lapisan bawah */
+            z-index: 1;
         }
 
         .slide.active {
@@ -229,7 +243,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6));
-            z-index: 2; /* Overlay di atas gambar */
+            z-index: 2;
         }
 
         .slide-content {
@@ -237,7 +251,7 @@
             text-align: left;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, .8);
             position: relative;
-            z-index: 3; /* Konten teks di lapisan paling atas */
+            z-index: 3;
         }
 
         .slide-content .sub-heading {
@@ -279,6 +293,7 @@
             display: inline-block;
             padding: 12px 30px;
             background-color: var(--secondary-color);
+            /* Menggunakan warna oren */
             color: white;
             border-radius: 30px;
             font-weight: 600;
@@ -289,7 +304,8 @@
         }
 
         .btn:hover {
-            background-color: var(--primary-color);
+            background-color: var(--accent-color);
+            /* Menggunakan warna ungu saat hover */
             transform: translateY(-3px)
         }
 
@@ -313,7 +329,8 @@
         }
 
         .slider-dot.active {
-            background-color: white
+            background-color: var(--light-blue-color)
+                /* Menggunakan warna biru */
         }
 
         .about-content {
@@ -369,7 +386,8 @@
 
         .gen-btn.active,
         .gen-btn:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--accent-color);
+            /* Menggunakan warna ungu */
             color: white
         }
 
@@ -382,6 +400,17 @@
 
         .team-container.active {
             display: grid
+        }
+
+        /* CSS Baru untuk Judul Generasi */
+        .generation-title {
+            grid-column: 1 / -1;
+            /* Membuat judul membentang di semua kolom grid */
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            width: 100%;
         }
 
         .member-card {
@@ -483,6 +512,7 @@
 
         .member-role {
             color: var(--secondary-color);
+            /* Menggunakan warna oren */
             font-weight: 600;
             margin-bottom: 15px
         }
@@ -511,6 +541,7 @@
 
         .social-links a:hover {
             background-color: var(--secondary-color)
+                /* Menggunakan warna oren */
         }
 
         .album-grid {
@@ -541,7 +572,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, .7);
+            background-color: rgba(17, 25, 92, .8);
+            /* Menggunakan warna navy transparan */
             padding: 20px;
             color: white;
             transform: translateY(100%);
@@ -584,7 +616,8 @@
 
         .achievement-icon {
             font-size: 2rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
+            /* Menggunakan warna ungu */
             flex-shrink: 0
         }
 
@@ -673,6 +706,7 @@
             width: 50px;
             height: 2px;
             background-color: var(--secondary-color)
+                /* Menggunakan warna oren */
         }
 
         .footer-col p {
@@ -699,6 +733,7 @@
 
         .footer-social a:hover {
             background-color: var(--secondary-color)
+                /* Menggunakan warna oren */
         }
 
         .footer-links li {
@@ -710,7 +745,8 @@
         }
 
         .footer-links a:hover {
-            color: var(--secondary-color);
+            color: var(--light-blue-color);
+            /* Menggunakan warna biru */
             padding-left: 5px
         }
 
@@ -780,7 +816,6 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <!-- Ganti src dengan path yang valid atau biarkan kosong jika tidak ada logo -->
                     <img src="images/Piforrr.png" alt="Piforrr Logo">
                     <h1>Piforrr</h1>
                 </div>
@@ -802,10 +837,8 @@
 
     <!-- Hero Slider -->
     <section id="home" class="hero-slider">
-        <!-- PERUBAHAN: Menghapus style background-image dan menambahkan tag <img> -->
         <div class="slide slide-1 active">
-            <!-- Ganti src dengan path gambar lokal Anda -->
-            <img src="images/hero-1.jpg" alt="Selamat Datang di Piforrr" class="slide-bg-image">
+            <img src="images/piforrr1.jpg" alt="Selamat Datang di Piforrr" class="slide-bg-image">
             <div class="container">
                 <div class="slide-content">
                     <h3 class="sub-heading">Piforrr</h3>
@@ -815,8 +848,7 @@
             </div>
         </div>
         <div class="slide slide-2">
-            <!-- Ganti src dengan path gambar lokal Anda -->
-            <img src="images/hero-2.jpg" alt="Mahasiswa Penuh Penasaran" class="slide-bg-image">
+            <img src="images/piforrr2.jpg" alt="Mahasiswa Penuh Penasaran" class="slide-bg-image">
             <div class="container">
                 <div class="slide-content">
                     <h3 class="sub-heading">Piforrr Triple R</h3>
@@ -826,8 +858,7 @@
             </div>
         </div>
         <div class="slide slide-3">
-            <!-- Ganti src dengan path gambar lokal Anda -->
-            <img src="images/hero-3.jpg" alt="Team Piforrr" class="slide-bg-image">
+            <img src="images/piforrr3.jpg" alt="Team Piforrr" class="slide-bg-image">
             <div class="container">
                 <div class="slide-content">
                     <h3 class="sub-heading">Triple R, Rest - Recharge - Rise</h3>
@@ -850,9 +881,7 @@
                 <h2>Tentang Piforrr</h2>
             </div>
             <div class="about-content">
-                <div class="about-image"><img
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-                        alt="Team Piforrr"></div>
+                <div class="about-image"><img src="images/piforrr2.jpg" alt="Team Piforrr"></div>
                 <div class="about-text">
                     <h3>Piforrr</h3>
                     <p>Berawal dari seorang mahasiswa Teknologi Informasi yang ingin mengikuti lomba hackathon, namun
@@ -861,7 +890,7 @@
                         tersebut menimbulkan rasa penasaran dari orang-orang di sekitarnya yang kerap bertanya, “P
                         for?”. Dari pertanyaan itulah kemudian muncul inspirasi untuk membentuk sebuah nama yang unik.
                         Sang mahasiswa membacanya sebagai Piforrr, dan pada tanggal 28 Maret 2025, nama Piforrr resmi
-                        lahir dan digunakan sebagai identitas tim mereka.</p><a href="#team" class="btn">Lihat
+                        lahir dan digunakan sebagai identitas tim kami.</p><a href="#team" class="btn">Lihat
                         Anggota</a>
                 </div>
             </div>
@@ -872,7 +901,7 @@
     <section id="team" class="section" style="background-color: #f5f5f5;">
         <div class="container">
             <div class="section-title">
-                <h2>Anggota Kami</h2>
+                <h2>Anggota Piforrr</h2>
             </div>
             <div class="generation-selector">
                 <button class="gen-btn active" data-gen="gen1">Generasi 1</button>
@@ -881,6 +910,7 @@
                 <button class="gen-btn" data-gen="gen4">Generasi 4</button>
                 <button class="gen-btn" data-gen="gen5">Generasi 5</button>
             </div>
+            <!-- Kontainer untuk anggota akan diisi oleh JavaScript -->
             <div class="team-container active" id="gen1"></div>
             <div class="team-container" id="gen2"></div>
             <div class="team-container" id="gen3"></div>
@@ -893,7 +923,7 @@
     <section id="album" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Album Kami</h2>
+                <h2>Album Piforrr</h2>
             </div>
             <div class="album-grid" id="album-grid"></div>
         </div>
@@ -915,9 +945,10 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <h3>Tentang Piforrr</h3>
-                    <p>Komunitas kreatif yang terdiri dari berbagai bakat muda dengan semangat kolaborasi dan inovasi.
+                    <p>Komunitas mahasiswa penasarrran.
                     </p>
-                    <div class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                    <div 
+                    class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
                                 class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-spotify"></i></a><a
                             href="#"><i class="fab fa-tiktok"></i></a></div>
                 </div>
@@ -933,59 +964,176 @@
                 </div>
                 <div class="footer-col">
                     <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kreativitas No. 123, Kota Seni</p>
-                    <p><i class="fas fa-phone"></i> +62 123 456 789</p>
-                    <p><i class="fas fa-envelope"></i> info@satuatap.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Institut Teknologi Del</p>
+                    <p><i class="fas fa-phone"></i> +62881 0808 11110</p>
+                    <p><i class="fas fa-envelope"></i> info@piforrr.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Piforrr. Tak Pandang Suku</p>
+                <p>&copy; 2023 Piforrr. Copyright</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // js/data.js
         const teamData = {
             gen1: [
                 {
                     id: 1,
                     name: "Oktovaaaaa",
-                    role: "Pendiri & Ketua",
+                    role: "Pendiri",
                     imgDefault: "images/anggota/Oktovaaaaa1.jpg",
-                    // --- PERBAIKAN: Menggunakan URL valid agar gambar latar belakang tampil ---
                     bgImage: "images/anggota/Oktovaaaaa2.jpg",
                     description: "Anggota pertama di Piforrr dan pendiri team Piforrr yang menduduki Piforrr Gen 1.",
                     socials: [
                         { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
-                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.vercel.app/" },
+                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.cloud/" },
                         { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
                         { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
                     ]
                 }
-                ,
-                // {
-                //     id: 2,
-                //     name: "Anggota Kedua",
-                //     role: "Wakil Ketua",
-                //     imgDefault: "https://images.unsplash.com/photo-1542909168-82c3e72fd3e7?auto=format&fit=crop&w=400&q=60",
-                //     bgImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-                //     description: "Spesialis strategi dan pengembangan komunitas. Menjaga agar visi tim tetap berjalan pada jalurnya.",
-                //     socials: [
-                //         { icon: "fab fa-instagram", url: "#" },
-                //         { icon: "fab fa-linkedin", url: "#" }
-                //     ]
-                // }
             ],
             gen2: [
                 {
                     id: 1,
                     name: "Oktovaaaaa",
-                    role: "Pendiri & Ketua",
+                    role: "Data Analyst",
                     imgDefault: "images/anggota/Oktovaaaaa1.jpg",
-                    // --- PERBAIKAN: Menggunakan URL valid agar gambar latar belakang tampil ---
                     bgImage: "images/anggota/Oktovaaaaa2.jpg",
                     description: "Ketua Piforrr Gen 2 dalam Tim Hackathon Build to Billions 2025, dengan peran sebagai Data Analyst.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
+                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.cloud/" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
+                        { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Mikhael Josua",
+                    role: "Back-end Developer",
+                    imgDefault: "images/anggota/Mikhael1.jpg",
+                    bgImage: "images/anggota/Mikhael2.jpg",
+                    description: "Piforrr Gen 2 dalam Tim Hackathon Build to Billions 2025, dengan peran sebagai Back-end Developer.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/stssy.y/" },
+                        // { icon: "fas fa-address-card", url: "" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6285272997806" },
+                        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/mikhael-josua-roganda/" }
+                    ]
+                },
+                                {
+                    id: 3,
+                    name: "Bryan Siagian",
+                    role: " - ",
+                    imgDefault: "images/anggota/BryanSiagian1.jpg",
+                    bgImage: "images/anggota/BryanSiagian2.jpg",
+                    description: "-.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/brynsgn/" },
+                        // { icon: "fas fa-address-card", url: "" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6281219208312" },
+                        // { icon: "fab fa-linkedin", url: "" }
+                    ]
+                },
+                {
+                    id: 4,
+                    name: "Felicya Panjaitan",
+                    role: " - ",
+                    imgDefault: "",
+                    bgImage: "",
+                    description: "-.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/felicyashekyda/" },
+                        // { icon: "fas fa-address-card", url: "" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6281262323435" },
+                        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/felicya-panjaitan-03a1aa292/" }
+                    ]
+                }
+            ],
+            gen3: [
+                {
+                    id: 1,
+                    name: "Oktovaaaaa",
+                    role: "Project Manager & QC",
+                    imgDefault: "images/anggota/Oktovaaaaa1.jpg",
+                    bgImage: "images/anggota/Oktovaaaaa2.jpg",
+                    description: "Project Manager yang mengarahkan team dalam pengerjaan Website Aksara Batak dan menjadi Quality Control yang menguji Website piforrr.id.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
+                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.cloud/" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
+                        { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Felicya Panjaitan",
+                    role: "Web Developer",
+                    imgDefault: "",
+                    bgImage: "",
+                    description: "Web Developer dari Website Aksara Batak piforrr.id.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/felicyashekyda/" },
+                        // { icon: "fas fa-address-card", url: "" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6281262323435" },
+                        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/felicya-panjaitan-03a1aa292/" }
+                    ]
+                }
+                
+            ],
+            gen4: [
+                {
+                    id: 1,
+                    name: "Oktovaaaaa",
+                    role: " - ",
+                    imgDefault: "images/anggota/Oktovaaaaa1.jpg",
+                    bgImage: "images/anggota/Oktovaaaaa2.jpg",
+                    description: "Mundur dari Gemastik 2025.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
+                        { icon: "fas fa-address-card", url: "https://oktovaaaaa.cloud/" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/62881080811110" },
+                        { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
+                    ]
+                },
+                                {
+                    id: 1,
+                    name: "Kesia Barasa",
+                    role: " - ",
+                    imgDefault: "images/anggota/",
+                    bgImage: "images/anggota/",
+                    description: "Mundur dari Gemastik 2025.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/kesiakhyna/" },
+                        // { icon: "fas fa-address-card", url: "/" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6288" },
+                        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/kesia-khayana-b42264353/" }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Felicya Panjaitan",
+                    role: "-",
+                    imgDefault: "",
+                    bgImage: "",
+                    description: "Mundur dari Gemastik 2025.",
+                    socials: [
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/felicyashekyda/" },
+                        // { icon: "fas fa-address-card", url: "" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/6281262323435" },
+                        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/felicya-panjaitan-03a1aa292/" }
+                    ]
+                }
+            ],
+            gen5: [
+                {
+                    id: 1,
+                    name: "Oktovaaaaa",
+                    role: "Abang Asuh K.07.01 Archimedes",
+                    imgDefault: "images/anggota/Oktovaaaaa1.jpg",
+                    bgImage: "images/anggota/Oktovaaaaa2.jpg",
+                    description: "Piforrr yang terpilih sebagai nama kamar K.07.01 di asrama Archimedes pada semester Gasal",
                     socials: [
                         { icon: "fab fa-instagram", url: "https://www.instagram.com/oktovaaaaa/" },
                         { icon: "fas fa-address-card", url: "https://oktovaaaaa.vercel.app/" },
@@ -993,33 +1141,17 @@
                         { icon: "fab fa-linkedin", url: "www.linkedin.com/in/oktovaaaaa" }
                     ]
                 }
-            ],
-            gen3: [],
-            gen4: [],
-            gen5: []
+            ]
         };
 
         const albumData = [
-            {
-                image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                title: "Pameran Seni 2023",
-                description: "Karya seni rupa dari anggota Piforrr"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                title: "Konser Amal",
-                description: "Penampilan musik untuk tujuan sosial"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                title: "Workshop Kreatif",
-                description: "Berbagi ilmu dengan komunitas"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
-                title: "Pentas Teater",
-                description: "Penampilan drama kolaborasi"
-            }
+            { image: "images/album/al1.jpg", title: "Pemenang Selebrasi Weebsite Aksara Batak", description: "Piforrr Gen 3 well" },
+            { image: "images/album/al2.jpg", title: "Foto setelah Seminar", description: "Terbantai dihari pertama cik" },
+            { image: "images/album/al3.jpg", title: "Hackathon Build to Billions", description: "Muka-muka yang penting submit project" },
+            { image: "images/album/al4.jpg", title: "P buat apa ?", description: "yg penting udah foto well" },
+            { image: "images/album/al7.jpg", title: "Gaya apa itu?", description: "Foto pertama dan terakhir di GSG" },
+            { image: "images/album/al6.jpg", title: "Foto Pertama Piforrr Gen 5", description: "Susah dipanggilin" }
+
         ];
 
         const achievementsData = [
@@ -1027,23 +1159,30 @@
                 icon: "fas fa-trophy",
                 title: "Juara 2 Lomba Website Aksara Batak Nasional",
                 summary: "Meraih penghargaan ke 2 dari team Piforrr Gen 3 dengan Lomba Website Aksara batak dengan nama domain 'piforrr.id'",
-                image: "images/prestasi/lombawebsiteaksarabatak.jpg", // Menggunakan gambar placeholder
+                image: "images/prestasi/lombawebsiteaksarabatak.jpg",
                 details: "Karya kami, Piforrr Gen 3, dengan nama domain “piforrr.id”, berhasil meraih juara dalam Lomba Website Aksara Batak yang diselenggarakan oleh PANDI di FISIP USU, Universitas Sumatera Utara, Medan."
             },
         ];
 
-        // js/main.js
         document.addEventListener('DOMContentLoaded', () => {
+
+            const generationTitles = {
+                gen1: "Piforrr",
+                gen2: "Hackfest Hackathon Build to Billions 2025",
+                gen3: "Website Aksara Batak",
+                gen4: "Gemastik Software Development",
+                gen5: "K.07.01 Archimedes"
+            };
 
             const generateMemberCards = (generationId) => {
                 const container = document.getElementById(generationId);
                 if (!container) return;
 
                 const members = teamData[generationId] || [];
-                let content = '';
+                let content = `<h3 class="generation-title">${generationTitles[generationId]}</h3>`;
 
                 if (members.length === 0) {
-                    content = '<p style="text-align:center; width:100%;">Data anggota untuk generasi ini belum tersedia.</p>';
+                    content += '<p style="text-align:center; width:100%; grid-column: 1 / -1;">Data anggota untuk generasi ini belum tersedia.</p>';
                 } else {
                     members.forEach(member => {
                         const socialLinks = member.socials.map(social =>
@@ -1072,7 +1211,6 @@
             const generateAlbumItems = () => {
                 const container = document.getElementById('album-grid');
                 if (!container) return;
-
                 container.innerHTML = albumData.map(item => `
                     <div class="album-item">
                         <img src="${item.image}" alt="${item.title}" class="album-image">
@@ -1087,7 +1225,6 @@
             const generateAchievements = () => {
                 const container = document.getElementById('achievement-list');
                 if (!container) return;
-
                 container.innerHTML = achievementsData.map(item => `
                     <div class="achievement-item">
                         <div class="achievement-header">
@@ -1106,7 +1243,6 @@
                         </div>
                     </div>
                 `).join('');
-
                 initAchievementAccordion();
             };
 
@@ -1174,14 +1310,11 @@
 
             const genButtons = document.querySelectorAll('.gen-btn');
             const teamContainers = document.querySelectorAll('.team-container');
-
             genButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const targetGen = button.dataset.gen;
-
                     genButtons.forEach(btn => btn.classList.remove('active'));
                     teamContainers.forEach(container => container.classList.remove('active'));
-
                     button.classList.add('active');
                     const targetContainer = document.getElementById(targetGen);
                     if (targetContainer) {
@@ -1206,6 +1339,7 @@
                 });
             });
 
+            // Panggil fungsi inisialisasi
             generateMemberCards('gen1');
             initMemberCardHover();
             generateAlbumItems();
