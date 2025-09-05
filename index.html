@@ -1,975 +1,991 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satu Atap - Tak Pandang Status maupun Materi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #192a56; 
-            --secondary-color: #a03030; 
-            --accent-color: #5f27cd; 
-            --light-color: #ecf0f1;
-            --dark-color: #192a56; 
-            --text-color: #333;
-            --transition: all 0.3s ease;
-        }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .section {
-            padding: 80px 0;
-            width: 100%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            width: 100%;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            padding: 10px 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            width: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .nav-menu {
-            display: flex;
-        }
-
-        .nav-menu li {
-            margin: 0 15px;
-        }
-
-        .nav-menu a {
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 5px 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 5px 0;
-            transition: var(--transition);
-        }
-
-        /* Hero Slider */
-        .hero-slider {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            margin-top: 70px;
-            width: 100%;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            color: white;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Piforrr - Tak Pandang Status maupun Materi</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
         
-        /* UPDATED: Removed background and padding, changed alignment */
-        .slide-content {
-            max-width: 750px;
-            text-align: left;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-        }
-        
-        .slide-content .sub-heading {
-            font-size: 1.3rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* UPDATED: Increased font size */
-        .slide-content h2 {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-        
-        .slide-1 h2 { font-family: 'Playfair Display', serif; }
-        .slide-2 h2 { font-family: 'Lobster', cursive; font-size: 4.5rem; }
-        .slide-3 h2 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+        <style>
+            :root {
+                --primary-color: #192a56; 
+                --secondary-color: #a03030; 
+                --accent-color: #5f27cd; 
+                --light-color: #ecf0f1;
+                --dark-color: #192a56; 
+                --text-color: #333;
+                --transition: all 0.4s ease; /* Made transition a bit slower for smoother effects */
+            }
 
-        .slide-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            text-shadow: none;
-        }
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+                position: relative;
+                scroll-behavior: smooth;
+            }
 
-        .btn:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: var(--text-color);
+                background-color: #f9f9f9;
+            }
 
-        .slider-nav {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-        }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
+            ul {
+                list-style: none;
+            }
 
-        .slider-dot.active {
-            background-color: white;
-        }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
 
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
-        }
+            .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
 
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+            .section {
+                padding: 80px 0;
+                width: 100%;
+            }
 
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
+            .section-title {
+                text-align: center;
+                margin-bottom: 50px;
+                position: relative;
+                width: 100%;
+            }
 
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
+            .section-title h2 {
+                font-size: 2.5rem;
+                color: var(--primary-color);
+                margin-bottom: 15px;
+            }
 
-        .about-text p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background-color: var(--secondary-color);
+            }
 
-        .generation-selector {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        .gen-btn {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: var(--light-color);
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .gen-btn.active,
-        .gen-btn:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .team-container {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            width: 100%;
-        }
-
-        .team-container.active {
-            display: grid;
-        }
-
-        .member-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            position: relative;
-            height: 350px;
-            width: 100%;
-        }
-
-        .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-
-        .member-card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .card-front,
-        .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .card-back {
-            transform: rotateY(180deg);
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .member-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--light-color);
-        }
-
-        .member-name {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            text-align: center;
-        }
-
-        .member-role {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .member-desc {
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .social-links {
-            display: flex;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 0 5px;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Album Section */
-        .album-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        .album-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-        }
-
-        .album-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .album-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            color: white;
-            transform: translateY(100%);
-            transition: var(--transition);
-        }
-
-        .album-item:hover .album-overlay {
-            transform: translateY(0);
-        }
-
-        .album-item:hover .album-image {
-            transform: scale(1.1);
-        }
-
-        .achievement-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .achievement-item {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-            overflow: hidden;
-            width: 100%;
-        }
-        
-        .achievement-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .achievement-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            flex-shrink: 0;
-        }
-        
-        .achievement-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .achievement-arrow {
-            margin-left: auto;
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .achievement-item.active .achievement-arrow {
-            transform: rotate(180deg);
-        }
-
-        .achievement-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-            padding: 0 20px;
-        }
-
-        .achievement-item.active .achievement-details {
-            max-height: 500px; 
-            padding: 0 20px 20px 20px;
-        }
-        
-        .achievement-image-container {
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 */
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-        
-        .achievement-image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .achievement-details p {
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 60px 0 30px;
-            width: 100%;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            width: 100%;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
-        }
-
-        .footer-col p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .slide-content h2 { font-size: 3.2rem; }
-            .slide-2 h2 { font-size: 3.5rem; }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-menu {
+            /* Header & Navigation */
+            header {
                 position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 80%;
-                height: calc(100vh - 70px);
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                background-color: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+
+            header.scrolled {
+                padding: 10px 0;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                width: 100%;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo img {
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 0 15px;
+            }
+
+            .nav-menu a {
+                color: var(--primary-color);
+                font-weight: 600;
+                padding: 5px 0;
+                position: relative;
+                transition: var(--transition);
+            }
+
+            .nav-menu a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--secondary-color);
+                transition: var(--transition);
+            }
+
+            .nav-menu a:hover::after,
+            .nav-menu a.active::after {
+                width: 100%;
+            }
+
+            .hamburger {
+                display: none;
+                cursor: pointer;
+            }
+
+            .hamburger div {
+                width: 25px;
+                height: 3px;
+                background-color: var(--primary-color);
+                margin: 5px 0;
+                transition: var(--transition);
+            }
+
+            /* Hero Slider */
+            .hero-slider {
+                position: relative;
+                height: 100vh;
+                overflow: hidden;
+                margin-top: 70px;
+                width: 100%;
+            }
+            .slides-container {
+                display: flex;
+                height: 100%;
+                width: 300%;
+                transition: transform 1s ease-in-out;
+            }
+            .slide {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                flex-shrink: 0;
+                background-size: cover;
+                /* UPDATED: Ensured background position is center */
+                background-position: center center;
+                display: flex;
+                align-items: center;
+                color: white;
+            }
+            
+            .slide-content {
+                max-width: 750px;
+                text-align: left;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            }
+            
+            .slide-content .sub-heading {
+                font-size: 1.3rem;
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+                color: rgba(255, 255, 255, 0.9);
+            }
+            
+            .slide-content h2 {
+                font-size: 4rem;
+                margin-bottom: 25px;
+                line-height: 1.2;
+            }
+            
+            .slide-1 h2 { font-family: 'Playfair Display', serif; }
+            .slide-2 h2 { font-family: 'Lobster', cursive; font-size: 4.5rem; }
+            .slide-3 h2 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+
+            .slide-content p {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+                max-width: 600px;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 12px 30px;
+                background-color: var(--secondary-color);
+                color: white;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: var(--transition);
+                border: none;
+                cursor: pointer;
+                text-shadow: none;
+            }
+
+            .btn:hover {
+                background-color: var(--primary-color);
+                transform: translateY(-3px);
+            }
+
+            .slider-nav {
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+            }
+
+            .slider-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                margin: 0 5px;
+                cursor: pointer;
+                transition: var(--transition);
+            }
+
+            .slider-dot.active {
                 background-color: white;
+            }
+
+            .about-content {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 40px;
+                width: 100%;
+            }
+
+            .about-image {
+                flex: 1;
+                min-width: 300px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .about-text {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .about-text h3 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+            }
+
+            .about-text p {
+                margin-bottom: 15px;
+                line-height: 1.8;
+            }
+
+            .generation-selector {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .gen-btn {
+                padding: 10px 20px;
+                margin: 5px;
+                background-color: var(--light-color);
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: var(--transition);
+            }
+
+            .gen-btn.active,
+            .gen-btn:hover {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+
+            .team-container {
+                display: none;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+                width: 100%;
+            }
+
+            .team-container.active {
+                display: grid;
+            }
+
+            /* --- UPDATED: NEW STYLES FOR MEMBER CARD HOVER EFFECT --- */
+            .member-card {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                position: relative;
+                height: 350px;
+                width: 100%;
+                overflow: hidden; /* Hide overflowing content */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .member-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            }
+            .member-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+                z-index: 1;
+            }
+            .member-card:hover::before {
+                opacity: 1;
+            }
+            .member-info-default {
+                display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                height: 100%;
+                padding: 20px;
+                transition: opacity 0.5s ease;
             }
-            .nav-menu.active { right: 0; }
-            .nav-menu li { margin: 15px 0; }
-            .hero-slider { height: 80vh; }
-            .slide-content h2 { font-size: 2.8rem; }
-            .slide-2 h2 { font-size: 3rem; }
-        }
-    </style>
-</head>
-<body oncontextmenu="return false;">
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZGh0PSI1MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxOTJhNTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTkgMTlINWEyIDIgMCAwIDEtMi0yVjdhMiAyIDAgMCAxIDItMmgxMGEyIDIgMCAwIDEgMiAydjEwYTIgMiAwIDAgMS0yIDJ6Ij48L3BhdGg+PHBhdGggZD0iTTkgMTloMTYiPjwvcGF0aD48L3N2Zz4=" alt="Satu Atap Logo">
-                    <h1>Satu Atap</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#team">Anggota</a></li>
-                    <li><a href="#album">Album</a></li>
-                    <li><a href="#achievements">Prestasi</a></li>
-                </ul>
-                <div class="hamburger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </nav>
-        </div>
-    </header>
+            .member-card:hover .member-info-default {
+                opacity: 0;
+            }
+            .member-info-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                color: white;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+                z-index: 2;
+            }
+            .member-card:hover .member-info-hover {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .member-image {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid var(--light-color);
+            }
+            .member-name {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                color: var(--primary-color);
+                text-align: center;
+            }
+            .member-role {
+                color: var(--secondary-color);
+                font-weight: 600;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            .member-desc {
+                text-align: center;
+                line-height: 1.6;
+            }
+            .social-links {
+                display: flex;
+                margin-top: 20px;
+            }
+            .social-links a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.2);
+                margin: 0 5px;
+                transition: var(--transition);
+            }
+            .social-links a:hover {
+                background-color: var(--secondary-color);
+            }
 
-    <!-- Hero Slider -->
-    <section id="home" class="hero-slider">
-        <div class="slide active slide-1" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <!-- UPDATED: Added container for alignment -->
+            /* Album Section */
+            .album-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                width: 100%;
+            }
+            .album-item {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                height: 250px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                width: 100%;
+            }
+            .album-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: var(--transition);
+            }
+            .album-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 20px;
+                color: white;
+                transform: translateY(100%);
+                transition: var(--transition);
+            }
+            .album-item:hover .album-overlay {
+                transform: translateY(0);
+            }
+            .album-item:hover .album-image {
+                transform: scale(1.1);
+            }
+
+            /* Achievements Section */
+            .achievement-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                max-width: 800px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .achievement-item {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+                overflow: hidden;
+                width: 100%;
+            }
+            .achievement-header {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+                cursor: pointer;
+                width: 100%;
+            }
+            .achievement-icon {
+                font-size: 2rem;
+                color: var(--secondary-color);
+                flex-shrink: 0;
+            }
+            .achievement-content h3 {
+                margin-bottom: 10px;
+                color: var(--primary-color);
+            }
+            .achievement-arrow {
+                margin-left: auto;
+                font-size: 1.5rem;
+                transition: var(--transition);
+            }
+            .achievement-item.active .achievement-arrow {
+                transform: rotate(180deg);
+            }
+            .achievement-details {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+                padding: 0 20px;
+            }
+            .achievement-item.active .achievement-details {
+                max-height: 500px; 
+                padding: 0 20px 20px 20px;
+            }
+            .achievement-image-container {
+                width: 100%;
+                padding-top: 56.25%; /* 16:9 */
+                position: relative;
+                border-radius: 8px;
+                overflow: hidden;
+                margin-bottom: 15px;
+            }
+            .achievement-image-container img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .achievement-details p {
+                line-height: 1.7;
+            }
+
+            /* Footer */
+            footer {
+                background-color: var(--dark-color);
+                color: white;
+                padding: 60px 0 30px;
+                width: 100%;
+            }
+            .footer-content {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+                justify-content: space-between;
+                margin-bottom: 40px;
+                width: 100%;
+            }
+            .footer-col {
+                flex: 1;
+                min-width: 250px;
+            }
+            .footer-col h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+            .footer-col h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background-color: var(--secondary-color);
+            }
+            .footer-col p {
+                margin-bottom: 15px;
+                line-height: 1.8;
+            }
+            .footer-social {
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+            }
+            .footer-social a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.1);
+                transition: var(--transition);
+            }
+            .footer-social a:hover {
+                background-color: var(--secondary-color);
+            }
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+            .footer-links a {
+                transition: var(--transition);
+            }
+            .footer-links a:hover {
+                color: var(--secondary-color);
+                padding-left: 5px;
+            }
+            .footer-bottom {
+                text-align: center;
+                padding-top: 30px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+            }
+
+            /* Responsive Styles */
+            @media (max-width: 992px) {
+                .slide-content h2 { font-size: 3.2rem; }
+                .slide-2 h2 { font-size: 3.5rem; }
+            }
+
+            @media (max-width: 768px) {
+                .hamburger { display: block; }
+                .nav-menu {
+                    position: fixed;
+                    top: 70px;
+                    right: -100%;
+                    width: 80%;
+                    height: calc(100vh - 70px);
+                    background-color: white;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    transition: var(--transition);
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                }
+                .nav-menu.active { right: 0; }
+                .nav-menu li { margin: 15px 0; }
+                .hero-slider { height: 80vh; }
+                .slide-content h2 { font-size: 2.8rem; }
+                .slide-2 h2 { font-size: 3rem; }
+            }
+        </style>
+    </head>
+    <body oncontextmenu="return false;">
+        <!-- Header & Navigation -->
+        <header id="header">
             <div class="container">
-                <div class="slide-content">
-                    <h3 class="sub-heading">Komunitas Kreatif Mahasiswa</h3>
-                    <h2>Selamat Datang di Satu Atap</h2>
-                    <p>Tak Pandang Status maupun Materi - Sebuah perjalanan kreatif yang dimulai dari sekelompok mahasiswa yang bersemangat.</p>
-                    <a href="#about" class="btn">Jelajahi Lebih</a>
-                </div>
-            </div>
-        </div>
-        <div class="slide slide-2" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <!-- UPDATED: Added container for alignment -->
-            <div class="container">
-                <div class="slide-content">
-                    <h3 class="sub-heading">Menuangkan Ide, Menghasilkan Karya</h3>
-                    <h2>Kreativitas Tanpa Batas</h2>
-                    <p>Menciptakan karya yang menginspirasi dan memberikan dampak positif bagi masyarakat sekitar.</p>
-                    <a href="#album" class="btn">Lihat Karya Kami</a>
-                </div>
-            </div>
-        </div>
-        <div class="slide slide-3" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <!-- UPDATED: Added container for alignment -->
-            <div class="container">
-                <div class="slide-content">
-                    <h3 class="sub-heading">Kekuatan Dalam Kebersamaan</h3>
-                    <h2>Kolaborasi dan Inovasi</h2>
-                    <p>Bersama-sama membangun mimpi dan mewujudkan ide-ide brilian melalui kolaborasi tim.</p>
-                    <a href="#team" class="btn">Kenali Anggota Kami</a>
-                </div>
-            </div>
-        </div>
-        <div class="slider-nav">
-            <div class="slider-dot active"></div>
-            <div class="slider-dot"></div>
-            <div class="slider-dot"></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Tentang Kami</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Team Satu Atap">
-                </div>
-                <div class="about-text">
-                    <h3>Cerita Kami</h3>
-                    <p>Berawal dari seorang seniman yang bernama Gerald Sitio, yang mengajak beberapa orang untuk pergi bersama keluar kampus. Kemudian, mereka membentuk kelompok sendiri dengan nama awal "Anjay".</p>
-                    <p>Dua minggu kemudian, mereka mengganti namanya menjadi "Krisis" karena ada konflik antara anggota kelompok mengenai nama tersebut. Akhirnya, mereka sepakat menggunakan nama "Satu Atap" sebagai nama kelompok mereka.</p>
-                    <p>Kini, Satu Atap telah berkembang menjadi komunitas kreatif yang terdiri dari berbagai generasi, dengan fokus pada seni, musik, dan karya inovatif lainnya.</p>
-                    <a href="#team" class="btn">Lihat Anggota</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="section" style="background-color: #f5f5f5;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Anggota Kami</h2>
-            </div>
-            <div class="generation-selector">
-                <button class="gen-btn active" data-gen="gen1">Generasi 1</button>
-                <button class="gen-btn" data-gen="gen2">Generasi 2</button>
-                <button class="gen-btn" data-gen="gen3">Generasi 3</button>
-                <button class="gen-btn" data-gen="gen4">Generasi 4</button>
-                <button class="gen-btn" data-gen="gen5">Generasi 5</button>
-            </div>
-
-            <div class="team-container active" id="gen1">
-                <div class="member-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="Member" class="member-image">
-                            <h3 class="member-name">Gerald Sitio</h3>
-                            <p class="member-role">Pendiri & Ketua</p>
-                        </div>
-                        <div class="card-back">
-                            <h3>Gerald Sitio</h3>
-                            <p class="member-desc">Seorang seniman berbakat yang memulai perjalanan Satu Atap. Memiliki visi untuk menciptakan wadah kreatif bagi anak muda.</p>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fas fa-briefcase"></i></a>
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                            </div>
-                        </div>
+                <nav class="navbar">
+                    <div class="logo">
+                        <img src="images/Piforrr.png" alt="Piforrr Logo">
+                        <h1>Piforrr</h1>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Album Section -->
-    <section id="album" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Album Kami</h2>
-            </div>
-            <div class="album-grid">
-                <div class="album-item">
-                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
-                    <div class="album-overlay">
-                        <h3>Pameran Seni 2023</h3>
-                        <p>Karya seni rupa dari anggota Satu Atap</p>
-                    </div>
-                </div>
-                <div class="album-item">
-                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
-                    <div class="album-overlay">
-                        <h3>Konser Amal</h3>
-                        <p>Penampilan musik untuk tujuan sosial</p>
-                    </div>
-                </div>
-                <div class="album-item">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
-                    <div class="album-overlay">
-                        <h3>Workshop Kreatif</h3>
-                        <p>Berbagi ilmu dengan komunitas</p>
-                    </div>
-                </div>
-                <div class="album-item">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
-                    <div class="album-overlay">
-                        <h3>Pentas Teater</h3>
-                        <p>Penampilan drama kolaborasi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section" style="background-color: #f5f5f5;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Prestasi Kami</h2>
-            </div>
-            <div class="achievement-list">
-                <div class="achievement-item">
-                    <div class="achievement-header">
-                        <div class="achievement-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div class="achievement-content">
-                            <h3>Juara 1 Festival Seni Kota 2023</h3>
-                            <p>Meraih penghargaan tertinggi dalam kategori karya kolaboratif.</p>
-                        </div>
-                        <div class="achievement-arrow">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="achievement-details">
-                        <div class="achievement-image-container">
-                             <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Festival Seni Kota">
-                        </div>
-                        <p>Karya kami, yang berjudul "Harmoni dalam Keberagaman", berhasil memukau para juri dengan menggabungkan seni lukis, musikalisasi puisi, dan tari kontemporer.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Tentang Satu Atap</h3>
-                    <p>Komunitas kreatif yang terdiri dari berbagai bakat muda dengan semangat kolaborasi dan inovasi.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-spotify"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Tautan Cepat</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Tentang Kami</a></li>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">Tentang Piforrr</a></li>
                         <li><a href="#team">Anggota</a></li>
                         <li><a href="#album">Album</a></li>
                         <li><a href="#achievements">Prestasi</a></li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kreativitas No. 123, Kota Seni</p>
-                    <p><i class="fas fa-phone"></i> +62 123 456 789</p>
-                    <p><i class="fas fa-envelope"></i> info@satuatap.com</p>
-                </div>
+                    <div class="hamburger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                </nav>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Satu Atap. Tak Pandang Status maupun Materi</p>
-            </div>
-        </div>
-    </footer>
+        </header>
 
-    <script>
-        // --- START: CONTENT PROTECTION ---
-        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) || (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
+        <!-- Hero Slider -->
+        <section id="home" class="hero-slider">
+            <div class="slides-container">
+                <div class="slide slide-1" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h3 class="sub-heading">Piforrr</h3>
+                            <h2>Selamat Datang di Website Team Piforrr.</h2>
+                            <p>Perkumpulan mahasiswa gila teknologi.</p>
+                            <a href="#about" class="btn">Tentang Piforrr</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide slide-2" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h3 class="sub-heading">Piforrr Triple R</h3>
+                            <h2>Penuh dengan Mahasiswa penasaran</h2>
+                            <p>Terkadang ambisius terkadang jadi anomali.</p>
+                            <a href="#team" class="btn">Generasi Piforrr</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide slide-3" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="container">
+                        <div class="slide-content">
+                            <h3 class="sub-heading">Triple R, Rest - Recharge - Rise</h3>
+                            <h2>Sampai akhir cycle kita tetap satu Piforrr</h2>
+                            <p>Bersama-sama untuk berpencarrr.</p>
+                            <a href="#album" class="btn">Team Piforrr</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tentang Piforrr</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Team Piforrr">
+                    </div>
+                    <div class="about-text">
+                        <h3>Piforrr</h3>
+                        <p>
+                            Berawal dari seorang mahasiswa Teknologi Informasi yang ingin mengikuti lomba hackathon, namun belum menemukan nama tim yang tepat. Bersama teman-temannya, ia memiliki kebiasaan membuat huruf P ketika berfoto, serta sering mengirimkan huruf P secara berulang dalam percakapan. Kebiasaan tersebut menimbulkan rasa penasaran dari orang-orang di sekitarnya yang kerap bertanya, “P for?”.
+
+Dari pertanyaan itulah kemudian muncul inspirasi untuk membentuk sebuah nama yang unik. Sang mahasiswa membacanya sebagai Piforrr, dan pada tanggal 28 Maret 2025, nama Piforrr resmi lahir dan digunakan sebagai identitas tim mereka.
+                        </p>
+                        <a href="#team" class="btn">Lihat Anggota</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section" style="background-color: #f5f5f5;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Anggota Kami</h2>
+                </div>
+                <div class="generation-selector">
+                    <button class="gen-btn active" data-gen="gen1">Generasi 1</button>
+                    <button class="gen-btn" data-gen="gen2">Generasi 2</button>
+                    <button class="gen-btn" data-gen="gen3">Generasi 3</button>
+                    <button class="gen-btn" data-gen="gen4">Generasi 4</button>
+                    <button class="gen-btn" data-gen="gen5">Generasi 5</button>
+                </div>
+
+                <div class="team-container active" id="gen1">
+                    <!-- UPDATED: NEW HTML STRUCTURE FOR MEMBER CARD -->
+                    <div class="member-card">
+                        <div class="member-info-default">
+                            <img src="images/anggota/Oktovaaaaa1.jpg" alt="Member" class="member-image">
+                            <h3 class="member-name">Oktovaaaaa</h3>
+                            <p class="member-role">Pendiri & Ketua</p>
+                        </div>
+                        <div class="member-info-hover">
+                            <h3>Oktovaaaaa</h3>
+                            <p class="member-desc">Seorang seniman berbakat yang memulai perjalanan Piforrr. Memiliki visi untuk menciptakan wadah kreatif bagi anak muda.</p>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/oktovaaaaa/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://oktovaaaaa.vercel.app/"><i class="fas fa-address-card"></i></a>
+                                <a href=""><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add other member cards here with the same new structure -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Album Section -->
+        <section id="album" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Album Kami</h2>
+                </div>
+                <div class="album-grid">
+                    <div class="album-item">
+                        <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
+                        <div class="album-overlay">
+                            <h3>Pameran Seni 2023</h3>
+                            <p>Karya seni rupa dari anggota Piforrr</p>
+                        </div>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
+                        <div class="album-overlay">
+                            <h3>Konser Amal</h3>
+                            <p>Penampilan musik untuk tujuan sosial</p>
+                        </div>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
+                        <div class="album-overlay">
+                            <h3>Workshop Kreatif</h3>
+                            <p>Berbagi ilmu dengan komunitas</p>
+                        </div>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Album" class="album-image">
+                        <div class="album-overlay">
+                            <h3>Pentas Teater</h3>
+                            <p>Penampilan drama kolaborasi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section" style="background-color: #f5f5f5;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Prestasi Kami</h2>
+                </div>
+                <div class="achievement-list">
+                    <div class="achievement-item">
+                        <div class="achievement-header">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Juara 1 Festival Seni Kota 2023</h3>
+                                <p>Meraih penghargaan tertinggi dalam kategori karya kolaboratif.</p>
+                            </div>
+                            <div class="achievement-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="achievement-details">
+                            <div class="achievement-image-container">
+                                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Festival Seni Kota">
+                            </div>
+                            <p>Karya kami, yang berjudul "Harmoni dalam Keberagaman", berhasil memukau para juri dengan menggabungkan seni lukis, musikalisasi puisi, dan tari kontemporer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <h3>Tentang Piforrr</h3>
+                        <p>Komunitas kreatif yang terdiri dari berbagai bakat muda dengan semangat kolaborasi dan inovasi.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-spotify"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Tautan Cepat</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">Tentang Piforrr</a></li>
+                            <li><a href="#team">Anggota</a></li>
+                            <li><a href="#album">Album</a></li>
+                            <li><a href="#achievements">Prestasi</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Kontak Kami</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Kreativitas No. 123, Kota Seni</p>
+                        <p><i class="fas fa-phone"></i> +62 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i> info@satuatap.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Piforrr. Tak Pandang Suku</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // --- START: CONTENT PROTECTION ---
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) || (e.ctrlKey && e.key === 'U')) {
+                    e.preventDefault();
+                }
+            });
+            // --- END: CONTENT PROTECTION ---
+
+            const header = document.getElementById('header');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
+            hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+
+            // Slider Logic
+            const slidesContainer = document.querySelector('.slides-container');
+            const dots = document.querySelectorAll('.slider-dot');
+            const totalSlides = dots.length;
+            let currentSlide = 0;
+            
+            function updateSliderPosition() {
+                const slideWidth = slidesContainer.parentElement.clientWidth;
+                slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentSlide].classList.add('active');
             }
-        });
-        // --- END: CONTENT PROTECTION ---
 
-        const header = document.getElementById('header');
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSliderPosition();
+            }
 
-        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
-        hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+            let slideInterval = setInterval(nextSlide, 5000);
 
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        let slideInterval = setInterval(nextSlide, 5000);
-
-        function nextSlide() { goToSlide(currentSlide + 1); }
-        function goToSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000);
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentSlide = parseInt(dot.dataset.slide);
+                    updateSliderPosition();
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
             });
-        });
+            
+            window.addEventListener('resize', updateSliderPosition);
 
-        const genButtons = document.querySelectorAll('.gen-btn');
-        const teamContainers = document.querySelectorAll('.team-container');
 
-        genButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetGen = button.dataset.gen;
-                genButtons.forEach(btn => btn.classList.remove('active'));
-                teamContainers.forEach(container => container.classList.remove('active'));
-                button.classList.add('active');
-                document.getElementById(targetGen).classList.add('active');
+            const genButtons = document.querySelectorAll('.gen-btn');
+            const teamContainers = document.querySelectorAll('.team-container');
+
+            genButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetGen = button.dataset.gen;
+                    genButtons.forEach(btn => btn.classList.remove('active'));
+                    teamContainers.forEach(container => container.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(targetGen).classList.add('active');
+                });
             });
-        });
 
-        const achievementItems = document.querySelectorAll('.achievement-item');
-        achievementItems.forEach(item => {
-            item.querySelector('.achievement-header').addEventListener('click', () => {
-                item.classList.toggle('active');
+            const achievementItems = document.querySelectorAll('.achievement-item');
+            achievementItems.forEach(item => {
+                item.querySelector('.achievement-header').addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.achievement-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
             });
-        });
-    </script>
-</body>
-</html>
+            
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('.nav-menu a, .btn[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                        }
+                        
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
